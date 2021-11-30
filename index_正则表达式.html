@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则表达式</title>
+  </head>
+  <body>
+    <script>
+      const templateStr = `<h1>我买了一个{{thing}},好{{mood}}</h1>`
+      const data = {
+        thing: '华为手机',
+        mood: '开心',
+      }
+
+      function render(templateStr, data) {
+        return templateStr.replace(/\{\{(\w+)\}\}/g, (a, $1, c, d) => {
+          return data[$1]
+        })
+      }
+      const template = render(templateStr, data)
+      console.log(template)
+    </script>
+  </body>
+</html>
